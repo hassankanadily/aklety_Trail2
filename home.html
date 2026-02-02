@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="orders.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="item-details.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <title>Aklety</title>
+  </head>
+  <body>
+  <!--NAVIGATION BAR-->
+    <div class="bottom-nav-bar">
+        <div class="nav-item-box" id="home">
+          <div class="nav-bar-pic-box">
+            <img class="nav-bar-pics" src="pictures/restaurant.png">
+          </div>
+          <p>Home</p>
+        </div>
+        <div class="nav-item-box" id="orders">
+          <div class="nav-bar-pic-box">
+            <img class="nav-bar-pics" src="pictures/black-clock.png">
+          </div>
+          <p>Orders</p>
+        </div>
+        <div class="for-notification">
+          <div class="nav-item-box" id="cart">
+            <div class="nav-bar-pic-box">
+              <img class="nav-bar-pics" src="pictures/shopping-cart.png">
+            </div>
+            <p>Cart</p>
+          </div>
+        </div>
+        <div class="nav-item-box" id="profile">
+          <div class="nav-bar-pic-box">
+            <img class="nav-bar-pics" src="pictures/user.png">
+          </div>
+          <p>Profile</p>
+        </div>
+      </div>
+  <!--HOME SECTION-->
+  <section class="home-section" id="home-sec" hidden>
+    <header class="home-header">
+      <div class="upper-header">
+        <div class="left-section">
+          <div class="logo-box">
+            <img class="logo-img" src="pictures/AkletyLogo.png">
+          </div>
+          <p class="logo-text">Welcome</p>
+        </div>
+        <div class="right-section">
+          <div class="header-icons">
+            <img src="pictures/heart.png">
+          </div>
+          <div class="header-icons" id="cart-top">
+            <img src="pictures/shopping-cart.png">
+          </div>
+          <div class="header-icons" id="profile-top">
+            <img src="pictures/user.png">
+          </div>
+        </div>
+      </div>
+      <div class="lower-header">
+        <div class="search-box">
+          <img class="search-icon" src="pictures/search-interface-symbol.png">
+        </div>
+        <input class="search-input" type="search" placeholder="Search dishes...">
+      </div>
+    </header>
+    <main>
+      <div class="custom-box">
+        <div class="left-custom">
+          <p class="left-custom-text">Build Your Custom Dish</p>
+          <p class="left-perfect-text">Create your perfect meal</p>
+          <div class="start-box">
+            <p class="left-start-text">Start Building</p>
+            <div class="right-arrow-box">
+              <img class="right-arrow-img" src="pictures/right-arrow.png">
+            </div>
+          </div>
+        </div>
+        <div class="right-custom">
+            <div class="fork-box"><img class="fork-img" src="pictures/restaurant.png"></div>
+        </div>
+      </div>
+      <div class="add-box">
+        <div class="left-add">
+          <div class="add-img-box">
+            <img class="add-img" src="pictures/add.png">
+          </div>
+        </div>
+        <div class="right-add">
+          <p class="add-item-text">Add Item to Menu</p>
+          <p class="submit-dish-text">Submit your dish ideas to be voted on</p>
+        </div>
+      </div>
+      <div class="trending-textbox">
+        <p class="trending-text">Trending</p>
+        <div class="clock-box">
+          <img class="clock-img" src="pictures/clock.png">
+        </div>
+      </div>
+      <nav class="trending-menu">
+        <div class="trending-box">
+          <div class="trending-pics-box">
+            <img class="trending-pics" src="pictures/grilled-chicken.avif">
+          </div>
+          <p class="trending-name">Grilled Chicken</p>
+          <div class="cost-rating">
+            <p class="trending-cost">$15.99</p>
+            <div class="right-section-cost">
+              <div class="star-box">
+                <img class="star-img" src="pictures/star.png">
+              </div>
+              <p class="rating">4.8</p>
+            </div>
+          </div>
+        </div>
+        <div class="trending-box">
+          <div class="trending-pics-box">
+            <img class="trending-pics" src="pictures/chicken-alfredo.jpg">
+          </div>
+          <p class="trending-name">Chicken Alfredo</p>
+          <div class="cost-rating">
+            <p class="trending-cost">$18.99</p>
+            <div class="right-section-cost">
+              <div class="star-box">
+                <img class="star-img" src="pictures/star.png">
+              </div>
+              <p class="rating">4.9</p>
+            </div>
+          </div>
+        </div>
+        <div class="trending-box">
+          <div class="trending-pics-box">
+            <img class="trending-pics" src="pictures/bbq.jpg">
+          </div>
+          <p class="trending-name">BBQ Ribs</p>
+          <div class="cost-rating">
+            <p class="trending-cost">$22.99</p>
+            <div class="right-section-cost">
+              <div class="star-box">
+                <img class="star-img" src="pictures/star.png">
+              </div>
+              <p class="rating">4.9</p>
+            </div>
+          </div>
+        </div>
+        <div class="trending-box">
+          <div class="trending-pics-box">
+            <img class="trending-pics" src="pictures/Mushroom-Carbonara-1.jpg">
+          </div>
+          <p class="trending-name">Carbonara</p>
+          <div class="cost-rating">
+            <p class="trending-cost">$16.99</p>
+            <div class="right-section-cost">
+              <div class="star-box">
+                <img class="star-img" src="pictures/star.png">
+              </div>
+              <p class="rating">4.8</p>
+            </div>
+          </div>
+        </div>
+        <div class="trending-box">
+          <div class="trending-pics-box">
+            <img class="trending-pics" src="pictures/tiramisu.webp">
+          </div>
+          <p class="trending-name">Tiramisu</p>
+          <div class="cost-rating">
+            <p class="trending-cost">$7.99</p>
+            <div class="right-section-cost">
+              <div class="star-box">
+                <img class="star-img" src="pictures/star.png">
+              </div>
+              <p class="rating">4.5</p>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <p class="main-menu-text">Menu</p>
+      <div class="menu-items">
+        <div class="all-box">
+          All
+        </div>
+        <div class="each-item">
+          <div class="small-food-img-box">
+            <img class="small-food-img" src="pictures/chicken-leg.png">
+          </div>
+          <p class="item-name">Chicken</p>
+        </div>
+        <div class="each-item">
+          <div class="small-food-img-box">
+            <img class="small-food-img" src="pictures/steak.png">
+          </div>
+          <p class="item-name">Meat</p>
+        </div>
+        <div class="each-item">
+          <div class="small-food-img-box">
+            <img class="small-food-img" src="pictures/spaguetti.png">
+          </div>
+          <p class="item-name">Pasta & Rice</p>
+        </div>
+        <div class="each-item">
+          <div class="small-food-img-box">
+            <img class="small-food-img" src="pictures/sandwich.png">
+          </div>
+          <p class="item-name">Sandwiches</p>
+        </div>
+        <div class="each-item">
+          <div class="small-food-img-box" >
+            <img class="small-food-img" src="pictures/cake.png">
+          </div>
+          <p class="item-name">Desserts</p>
+        </div>
+      </div>
+      <div class="full-menu">
+        <div class="big-menu-items">
+          <div class="menu-above-box">
+            <div class="big-food-box">
+              <img class="big-food-img" src="pictures/grilled-chicken.avif">
+            </div>
+            <div class="like-img-box">
+              <img class="like-img" src="pictures/heart.png">
+            </div>
+          </div>
+          <p class="menu-item-name">Grilled Chicken</p>
+          <p class="item-description">Perfectly cooked grilled chicken with herbs</p>
+          <div class="cost-rating">
+              <p class="trending-cost">$15.99</p>
+              <div class="right-section-cost">
+                <div class="star-box">
+                  <img class="star-img" src="pictures/star.png">
+                </div>
+                <p class="rating">4.8</p>
+            </div>
+          </div>
+        </div>
+        <div class="big-menu-items">
+          <div class="menu-above-box">
+            <div class="big-food-box">
+              <img class="big-food-img" src="pictures/bbq.jpg">
+            </div>
+            <div class="like-img-box">
+              <img class="like-img" src="pictures/heart.png">
+            </div>
+          </div>
+          <p class="menu-item-name">BBQ Ribs</p>
+          <p class="item-description">Fall-off-the-bone tender ribs</p>
+          <div class="cost-rating">
+              <p class="trending-cost">$22.99</p>
+              <div class="right-section-cost">
+                <div class="star-box">
+                  <img class="star-img" src="pictures/star.png">
+                </div>
+                <p class="rating">4.9</p>
+            </div>
+          </div>
+        </div>
+        <div class="big-menu-items">
+          <div class="menu-above-box">
+            <div class="big-food-box">
+              <img class="big-food-img" src="pictures/carbonara.jpg">
+            </div>
+            <div class="like-img-box">
+              <img class="like-img" src="pictures/heart.png">
+            </div>
+          </div>
+          <p class="menu-item-name">Carbonara</p>
+          <p class="item-description">Classic Italian pasta with bacon</p>
+          <div class="cost-rating">
+              <p class="trending-cost">$16.99</p>
+              <div class="right-section-cost">
+                <div class="star-box">
+                  <img class="star-img" src="pictures/star.png">
+                </div>
+                <p class="rating">4.8</p>
+            </div>
+          </div>
+        </div>
+        <div class="big-menu-items">
+          <div class="menu-above-box">
+            <div class="big-food-box">
+              <img class="big-food-img" src="pictures/chicken-alfredo.jpg">
+            </div>
+            <div class="like-img-box">
+              <img class="like-img" src="pictures/heart.png">
+            </div>
+          </div>
+          <p class="menu-item-name">Chicken Alfredo</p>
+          <p class="item-description">Creamy pasta with grilled chicken</p>
+          <div class="cost-rating">
+              <p class="trending-cost">$18.99</p>
+              <div class="right-section-cost">
+                <div class="star-box">
+                  <img class="star-img" src="pictures/star.png">
+                </div>
+                <p class="rating">4.9</p>
+            </div>
+          </div>
+        </div>
+        <div class="big-menu-items">
+          <div class="menu-above-box">
+            <div class="big-food-box">
+              <img class="big-food-img" src="pictures/beef-steak.jpg">
+            </div>
+            <div class="like-img-box">
+              <img class="like-img" src="pictures/heart.png">
+            </div>
+          </div>
+          <p class="menu-item-name">Beef Steak</p>
+          <p class="item-description">Premium cut with garlic butter</p>
+          <div class="cost-rating">
+              <p class="trending-cost">$24.99</p>
+              <div class="right-section-cost">
+                <div class="star-box">
+                  <img class="star-img" src="pictures/star.png">
+                </div>
+                <p class="rating">4.7</p>
+            </div>
+          </div>
+        </div>
+        <div class="big-menu-items">
+          <div class="menu-above-box">
+            <div class="big-food-box">
+              <img class="big-food-img" src="pictures/club-sandwich.webp">
+            </div>
+            <div class="like-img-box">
+              <img class="like-img" src="pictures/heart.png">
+            </div>
+          </div>
+          <p class="menu-item-name">Club Sandwich</p>
+          <p class="item-description">Triple-decker with turkey and bacon</p>
+          <div class="cost-rating">
+              <p class="trending-cost">$12.99</p>
+              <div class="right-section-cost">
+                <div class="star-box">
+                  <img class="star-img" src="pictures/star.png">
+                </div>
+                <p class="rating">4.5</p>
+            </div>
+          </div>
+        </div>
+        <div class="big-menu-items">
+          <div class="menu-above-box">
+            <div class="big-food-box">
+              <img class="big-food-img" src="pictures/philly-sandwich.jpg">
+            </div>
+            <div class="like-img-box">
+              <img class="like-img" src="pictures/heart.png">
+            </div>
+          </div>
+          <p class="menu-item-name">Philly Sandwich</p>
+          <p class="item-description">Loaded with beef and cheese</p>
+          <div class="cost-rating">
+              <p class="trending-cost">$14.99</p>
+              <div class="right-section-cost">
+                <div class="star-box">
+                  <img class="star-img" src="pictures/star.png">
+                </div>
+                <p class="rating">4.6</p>
+            </div>
+          </div>
+        </div>
+        <div class="big-menu-items">
+          <div class="menu-above-box">
+            <div class="big-food-box">
+              <img class="big-food-img" src="pictures/seafood-paella.webp">
+            </div>
+            <div class="like-img-box">
+              <img class="like-img" src="pictures/heart.png">
+            </div>
+          </div>
+          <p class="menu-item-name">Seafood Paella</p>
+          <p class="item-description">Spanish rice with fresh seafood</p>
+          <div class="cost-rating">
+              <p class="trending-cost">$19.99</p>
+              <div class="right-section-cost">
+                <div class="star-box">
+                  <img class="star-img" src="pictures/star.png">
+                </div>
+                <p class="rating">4.9</p>
+            </div>
+          </div>
+        </div>
+        <div class="big-menu-items">
+          <div class="menu-above-box">
+            <div class="big-food-box">
+              <img class="big-food-img" src="pictures/chocolate-lava-cake.jpg">
+            </div>
+            <div class="like-img-box">
+              <img class="like-img" src="pictures/heart.png">
+            </div>
+          </div>
+          <p class="menu-item-name">Chocolate Lava Cake</p>
+          <p class="item-description">Warm chocolate cake with motlen center</p>
+          <div class="cost-rating">
+              <p class="trending-cost">$8.99</p>
+              <div class="right-section-cost">
+                <div class="star-box">
+                  <img class="star-img" src="pictures/star.png">
+                </div>
+                <p class="rating">4.7</p>
+            </div>
+          </div>
+        </div>
+        <div class="big-menu-items">
+          <div class="menu-above-box">
+            <div class="big-food-box">
+              <img class="big-food-img" src="pictures/tiramisu.webp">
+            </div>
+            <div class="like-img-box">
+              <img class="like-img" id="old-like-img" src="pictures/heart.png">
+            </div>
+          </div>
+          <p class="menu-item-name">Tiramisu</p>
+          <p class="item-description">Classic italian coffee dessert</p>
+          <div class="cost-rating">
+              <p class="trending-cost">$7.99</p>
+              <div class="right-section-cost">
+                <div class="star-box">
+                  <img class="star-img" src="pictures/star.png">
+                </div>
+                <p class="rating">4.4</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    </section>
+    <!--ORDERS SECTION-->
+    <section class="orders-section" id="orders-sec" hidden>
+      <header class="orders-header">
+        <div class="left-arrow-box">
+          <img class="left-arrow-img" src="pictures/back.png">
+        </div>
+        <p>Order History</p>
+      </header>
+      <div class="previous-order"></div>
+    </section>
+    <!--CART SECTION-->
+    <section class="cart-section" id="cart-sec" hidden>
+      <header class="cart-header">
+        <div class="left-arrow-box">
+          <img class="left-arrow-img" src="pictures/back.png">
+        </div>
+        <p>Cart</p>
+      </header>
+      <div class="items-first"></div>
+      <div class="big-total-box" hidden>
+        <div class="subtotal-bigger-box">
+          
+        </div>
+        <div class="total-box" hidden>
+          <p class="word-total2" hidden>Total</p>
+          <p class="bagarab"></p>
+        </div>
+      </div>
+      <div class="empty-cart">
+        <div class="bag-img-box"><img class="bag-img" src="pictures/bag.png"></div>
+        <p class="empty-cart-text">Your cart is empty</p>
+        <p class="long-empty-text">Looks like you haven't added anything to your cart yet</p>
+        <div class="start-ordering-button">Start Ordering</div>
+        
+      </div>
+
+
+    </section>
+    <!--PROFILE SECTION-->
+    <section class="profile-section" id="profile-sec">
+      <header class="profile-header">
+        <div class="left-arrow-box">
+          <img class="left-arrow-img" src="pictures/back.png">
+        </div>
+        <p>Profile</p>
+      </header>
+      <div class="upper-profile">
+        <div class="profile-details">
+          <p class="profile-name">Hassan Elkanadily</p>
+          <p class="profile-email">hassansk2007@gmail.com</p>
+          <p class="edit-profile-button">Edit Profile</p>
+        </div>
+        <div class="points-box">
+          <p class="points-amount">0</p>
+          <p class="points-word">POINTS</p>
+        </div>
+      </div>
+      <div class="profile-inputs">
+        <p class="name-and-email1">Name</p>
+        <div class="each-input-box1">
+          <input class="name-input" placeholder="Please enter new name">
+          <p class="confirm-name">Confirm</p>
+        </div>
+        <p class="name-and-email2">Email</p>
+        <div class="each-input-box2">
+          <input class="email-input" placeholder="Please enter new email">
+          <p class="confirm-email">Confirm</p>
+        </div>
+      </div>
+      <div class="lower-profile">
+        <div class="each-lower-profile" id="payment-methods">
+          <div class="profile-img-box">
+            <img class="profile-img" src="pictures/credit-card.png">
+          </div>
+          <p class="profile-words">Payment Methods</p>
+          <div class="right-arrow-box">
+            <img class="right-arrow-img" src="pictures/chevron.png">
+          </div>
+        </div>
+        <div class="each-lower-profile" id="payment-methods">
+          <div class="profile-img-box">
+            <img class="profile-img" src="pictures/location.png">
+          </div>
+          <p class="profile-words">Addresses</p>
+          <div class="right-arrow-box">
+            <img class="right-arrow-img" src="pictures/chevron.png">
+          </div>
+        </div>
+        <div class="each-lower-profile" id="payment-methods">
+          <div class="profile-img-box">
+            <img class="profile-img" src="pictures/setting.png">
+          </div>
+          <p class="profile-words">Settings</p>
+          <div class="right-arrow-box">
+            <img class="right-arrow-img" src="pictures/chevron.png">
+          </div>
+        </div>
+        <div class="each-lower-profile" id="payment-methods">
+          <div class="profile-img-box">
+            <img class="profile-img" src="pictures/group.png">
+          </div>
+          <p class="profile-words">About Us</p>
+          <div class="right-arrow-box">
+            <img class="right-arrow-img" src="pictures/chevron.png">
+          </div>
+        </div>
+      </div>
+      <div class="logout-button">
+        <div class="logout-img-box">
+          <img class="logout-img" src="pictures/logout.png">
+        </div>
+        <p class="logout-word">Log Out</p>
+      </div>
+    </section>
+    <!--CLICKED MENU ITEM-->
+    <section class="clicked-menu-item-section" id="clicked-menu-item-sec" hidden>
+      <div class="clicked-item-pic-box"></div>
+    <div class="all-item-details">
+      <div class="elements-added">
+      </div>
+      <div class="item-quantity">
+          <p class="quantity-name">Quantity</p>
+          <div class="quantity-number-div">
+            <button class="minus-button" id="minus-btn">-</button>
+            <span id="quantity-count">1</span>
+            <button class="plus-button" id="plus-btn">+</button>
+          </div>
+      </div>
+    </div>
+      <div class="macros">
+          <p></p>
+          <div class="macros-details">
+            <div class="each-macro">
+              <p>250</p>
+              <p>Calories</p>
+            </div>
+            <div class="each-macro">
+              <p>15g</p>
+              <p>Protein</p>
+            </div>
+            <div class="each-macro">
+              <p>8g</p>
+              <p>Fat</p>
+            </div>
+          </div>
+      </div>
+      <div class="total-cost">
+        <div class="total-and-cost">
+          <p class="word-total">Total</p>
+          <div class="current-cost"></div>
+        </div>
+        <div class="cart-and-add">
+          <div class="cart-img-box"><img class="cart-img" src="pictures/shopping-cart.png"></div>
+          <p>Add to Cart</p>
+        </div>
+      </div>
+    </section>
+    <!--CHECKOUT SECTION-->
+    <section class="checkout-section" id="checkout-sec" hidden>
+      <header class="checkout-header">
+        <div class="left-arrow-box">
+          <img class="left-arrow-img" src="pictures/back.png">
+        </div>
+        <p>Checkout</p>
+      </header>
+      <div class="delivery-checkout">
+        <div class="delivery-and-edit">
+          <p class="delivery-to-text">Delivery To</p>
+          <p class="checkout-edit-button">Edit</p>
+        </div>
+        <div class="address-box">
+          <div class="checkout-location-img-box">
+            <img class="checkout-location-img" src="pictures/location.png">
+          </div>
+          <div class="location-texts">
+            <p class="home-word">Home</p>
+            <p class="actual-location">123 Culinary Ave, Apt 4B <br> New York, NY 10012</p>
+            <div class="new-location-box">
+              <input class="new-location" placeholder="Enter new location">
+              <p class="confirm-btn">Confirm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="payment-checkout">
+        <div class="delivery-and-edit">
+          <p class="delivery-to-text">Payment Method</p>
+          <div class="payment-edit-box">
+            <p class="payment-edit-button">Edit</p>
+            <div class="payment-options-box">
+              <p id="visa">Visa</p>
+              <p id="apple-pay">Apple Pay</p>
+              <p id="cash">Cash</p>
+            </div>
+          </div>
+        </div>
+        <div class="payment-box">
+          <div class="visa-img-box">
+            <img class="visa-img" src="pictures/credit-card.png">
+          </div>
+          <div>
+            <p class="visa-number">0000</p>
+            <div class="number-box">
+                <input class="new-number" placeholder="Enter Card Number">
+                <p class="confirm-btn2">Confirm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="order-summary-word">Order Summary</p>
+      <div class=add-total></div>
+      <p class="confirm-order-button">Confirm Order</p>
+    </section>
+    <script src="app.js"></script>
+  </body>
+</html>
