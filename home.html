@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="item-details.css">
     <link rel="stylesheet" href="checkout.css">
     <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="verification.css">
+    <link rel="stylesheet" href="custom-builder.css">
+    <link rel="stylesheet" href="request-to-add.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
     <title>Aklety</title>
@@ -73,6 +77,7 @@
         <input class="search-input" type="search" placeholder="Search dishes...">
       </div>
     </header>
+    <p class="logged-in-message">Successfully Logged In</p>
     <main>
       <div class="custom-box">
         <div class="left-custom">
@@ -466,13 +471,12 @@
         <p class="empty-cart-text">Your cart is empty</p>
         <p class="long-empty-text">Looks like you haven't added anything to your cart yet</p>
         <div class="start-ordering-button">Start Ordering</div>
-        
       </div>
 
 
     </section>
     <!--PROFILE SECTION-->
-    <section class="profile-section" id="profile-sec">
+    <section class="profile-section" id="profile-sec" hidden>
       <header class="profile-header">
         <div class="left-arrow-box">
           <img class="left-arrow-img" src="pictures/back.png">
@@ -490,6 +494,7 @@
           <p class="points-word">POINTS</p>
         </div>
       </div>
+      <button class="khadija-button" hidden>KHADIJA BUTTON</button>
       <div class="profile-inputs">
         <p class="name-and-email1">Name</p>
         <div class="each-input-box1">
@@ -562,7 +567,7 @@
           </div>
       </div>
     </div>
-      <div class="macros">
+      <!--<div class="macros">
           <p></p>
           <div class="macros-details">
             <div class="each-macro">
@@ -578,7 +583,7 @@
               <p>Fat</p>
             </div>
           </div>
-      </div>
+      </div>-->
       <div class="total-cost">
         <div class="total-and-cost">
           <p class="word-total">Total</p>
@@ -643,8 +648,945 @@
         </div>
       </div>
       <p class="order-summary-word">Order Summary</p>
+      <div class="total-custom-checkout-box">
+        <div class="custom-item-box">
+
+        </div>
+        <div class="total-custom-box">
+          <p class="total-custom-text">Total</p>
+          <p class="total-custom-cost">0</p>
+        </div>
+      </div>
       <div class=add-total></div>
       <p class="confirm-order-button">Confirm Order</p>
+    </section>
+    <!--LOGIN SECTION-->
+    <section class="login-section" id="login-sec" hidden>
+      <div class="login-welcome">
+        <p class="welcome-back-text">Welcome Back</p>
+        <p class="signin-text">Sign in to continue ordering your favorites.</p>
+      </div>
+      <div class="login-email-box">
+        <p class="login-email-text">Email Address</p>
+        <div class="email-input-box">
+          <div class="email-img-box">
+             <img class="email-img" src="pictures/email.png">
+          </div>
+          <input class="login-email" placeholder="name@example.com">
+        </div>
+        <p class=account-exists-message>Account already exists!! </p>
+        <p class=email-required>This field is required!!</p>
+      </div>
+      <div class="login-password-box">
+        <p class="login-password-text">Password</p>
+        <div class="password-input-box">
+          <div class="lock-img-box">
+            <img class="lock-img" src="pictures/lock.png">
+          </div>
+          <input type="password"class="login-password" placeholder="Enter password">
+        </div>
+        <p class=password-required>This field is required!!</p>
+      </div>
+      <div class="forgot-pass-box"><p class="forgot-pass-btn">Forgot password?</p></div>
+      <p class="sign-in-button">Sign In</p>
+      <p class="dont-have-account">Don't have an account?<span class="sign-up-button">Sign Up</span></p>
+    </section>
+    <!--VERIFICATION SECTION-->
+    <section class="verification-section" id="verification-sec" hidden>
+      <div class="upper-verification-box">
+        <div class="back-arrow-verify-box">
+          <img class="back-arrow-verify-img" src="pictures/back.png">
+        </div>
+      </div>
+      <p class="verification-text">Verification</p>
+      <p class="enter-digit-text">Enter the 4-digit code sent to your email.</p>
+      <div class="verification-numbers">
+        <input type="text" inputmode="numeric" class="verification-inputs" maxlength="1">
+        <input type="text" inputmode="numeric" class="verification-inputs"maxlength="1" >
+        <input type="text" inputmode="numeric" class="verification-inputs"maxlength="1">
+        <input type="text" inputmode="numeric" class="verification-inputs"maxlength="1">
+      </div>
+      <p class="please-valid-text">Please enter a 4 digit valid code!!</p>
+      <p class="invalid-text">Invalid code!!</p>
+      <p class="verify-button">Verify Account</p>
+      <p class="didnt-receive-text">Didn't receive code?<span class="resend-button">Resend</span></p>
+      <p class="code-number">0000</p>
+    </section>
+    <!--CUSTOM BUILDER SECTION-->
+    <section class="custom-builder-section" id="custom-builder-sec" hidden>
+      <div class="upper-custom-builder">
+        <div class="custom-builder-header">
+          <div class="arrow-builder"><img class="arrow-builder-img" src="pictures/back.png"></div>
+          <div class="header-text">
+            <p class="build-own-text">BUILD YOUR OWN</p>
+            <p class="custom-dish-text">Custom Dish</p>
+          </div>
+        </div>
+        <div class=score-box>
+          <div class="score-texts">
+            <div class="score-text-box">
+              <p class="balance-score-text">DISH BALANCE SCORE</p>
+              <p class="start-building-own-text">Start building your dish!</p>
+            </div>
+            <p class="total-score"><span class="score">0</span>/10</p>
+          </div>
+          <progress class="progress" value="0" max="10"></progress>
+        </div>
+        <div class="macros-box">
+          <p class="macro-type" id="base">Base</p>
+          <p class="macro-type" id="protein">Protein</p>
+          <p class="macro-type" id="toppings">Toppings</p>
+          <p class="macro-type" id="sauce">Sauces</p>
+        </div>
+      </div>
+      <p class="not-enough-message">Not enough Points!!</p>
+      <div class="custom-proceed-box">
+        <p class="proceed-text">Proceed to Checkout</p>
+        <p class="total-custom-amount">0</p>
+      </div>
+      <div class="main-custom">
+        <div class="base-box">
+          <p class="base-title">Base</p>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>3pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/rice.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">White Rice</p>
+              <p class="food-cost">$2.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>3pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/food.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Brown Rice</p>
+              <p class="food-cost">$2.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>3pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/spaguetti.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Pasta</p>
+              <p class="food-cost">$3.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/mashed-potato.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Mashed Potatoes</p>
+              <p class="food-cost">$2.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/fried-potatoes.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">French Fries</p>
+              <p class="food-cost">$2.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/potato.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Potato Wedges</p>
+              <p class="food-cost">$2.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/bread.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Fino Bread</p>
+              <p class="food-cost">$1.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/toast.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Toast</p>
+              <p class="food-cost">$1.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/tortillas.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Tortilla</p>
+              <p class="food-cost">$2.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/bun.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Bread Bun</p>
+              <p class="food-cost">$1.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/bagel.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Bagel</p>
+              <p class="food-cost">$2.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <p class="base-title">Protein</p>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>4pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/chicken-breast.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Grilled Chicken</p>
+              <p class="food-cost">$5.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>4pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/fried-chicken.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Fried Chicken</p>
+              <p class="food-cost">$5.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>4pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/beef-steak-small.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Beef Steak</p>
+              <p class="food-cost">$7.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>4pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/ground-beef.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Ground Beef</p>
+              <p class="food-cost">$6.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>4pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/meat-ball.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Meatballs</p>
+              <p class="food-cost">$5.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>4pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/ribs.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">BBQ Ribs</p>
+              <p class="food-cost">$8.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>4pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/shrimp.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Shrimp</p>
+              <p class="food-cost">$9.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>4pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/salmon.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Salmon</p>
+              <p class="food-cost">$10.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>4pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/sashimi.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Tuna</p>
+              <p class="food-cost">$7.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>3pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/fried-egg.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Eggs</p>
+              <p class="food-cost">$2.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>3pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/bacon.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Bacon</p>
+              <p class="food-cost">$2.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>3pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/sausage.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Sausage</p>
+              <p class="food-cost">$3.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>3pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/falafel.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Falafel</p>
+              <p class="food-cost">$2.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <p class="base-title">Extras</p>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/cheese.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Cheddar Cheese</p>
+              <p class="food-cost">$1.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/cheese.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Mozzarella</p>
+              <p class="food-cost">$1.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/cheese.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Parmesan</p>
+              <p class="food-cost">$1.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/fried-egg.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Fried Egg</p>
+              <p class="food-cost">$1.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/mushroom.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Mushrooms</p>
+              <p class="food-cost">$1.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/cooking.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Caramelized Onions</p>
+              <p class="food-cost">$1.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/lettuce.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Lettuce</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/tomato.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Tomato</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/pickle.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Pickles</p>
+              <p class="food-cost">$1.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>2pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/avocado.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Avocado</p>
+              <p class="food-cost">$2.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/corn.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Corn</p>
+              <p class="food-cost">$1.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/olives.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Olives</p>
+              <p class="food-cost">$1.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/jalapeno.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Jalapenos</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <p class="base-title">Sauces</p>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/bbq-sauce.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">BBQ</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/ranch-dressing.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Ranch</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/sauce.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Garlic Sauce</p>
+              <p class="food-cost">$1.00</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/ketchup.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Ketchup</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/mayonnaise.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Mayo</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/mustard.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Mustard</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/fish.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Teriyaki</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/hot-sauce.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Hot Sauce</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/pesto.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Pesto</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+          <div class=each-food>
+            <div class="points-and-img">
+              <p>1pts</p>
+              <div class="food-img-box">
+              <img class="food-img" src="pictures/cheese-sauce.png">
+              </div>
+            </div>
+            <div class="food-details">
+              <p class="food-name">Cheese Sauce</p>
+              <p class="food-cost">$0.50</p>
+            </div>
+            <div class="add-food-box">
+              <p class="minus-food">-</p>
+              <p class="food-amount">0</p>
+              <p class="plus-food">+</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    <section class="request-section" id="request-sec">
+      <div class="request-header">
+        <div class="request-arrow">
+          <img class="request-arrow-img" src="pictures/back.png">
+        </div>
+        <p class="suggest-title">Suggest a Dish</p>
+      </div>
+      <div class="request-rest">
+        <p class="dish-name-text">Dish Name</p>
+        <input class="dish-name-input" placeholder="e.g. Cheese Nachos">
+        <p class="category-text">Category</p>
+        <p class=select-category-text>Select a category</p>
+        <div class="category-box">
+          <p class="category-option" id="breakfast">Breakfast</p>
+          <p class="category-option" id="lunch">Lunch</p>
+          <p class="category-option" id="dinner">Dinner</p>
+          <p class="category-option" id="breakfast">Snack</p>
+        </div>
+        <p class="request-description">Description</p>
+        <input class="big-text-box" placeholder="Describe the dish... What makes it special? How should it be served?">
+        <p class="ingredients-text">Ingredients</p>
+        <input class="ingredients-text-box" placeholder="List Ingredients">
+        <div class="img-and-video">
+          <div class="img-upload-box">
+            <input type="file" accept="image/*" class="image-upload">
+            <p class="add-file">Add photo</p>
+          </div>
+          <div class="video-upload-box">
+            <input type="file" accept="video/*" class="video-upload">
+            <p class="add-file">Add video</p>
+          </div>
+        </div>
+        <p class="proposal-button">Submit Proposal</p>
+      </div>
     </section>
     <script src="app.js"></script>
   </body>

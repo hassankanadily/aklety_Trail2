@@ -1,6 +1,6 @@
 .clicked-menu-item-section{
   background-color: rgb(246, 246, 238);
-  min-height:100vh;
+  min-height:760px;
   position:relative;
   margin-top:0;
 }
@@ -113,6 +113,10 @@
   align-items: center;
   background-color: white;
   border-top:1px solid gray;
+  position: absolute;
+  bottom:0;
+  left:0;
+  right:0;
 }
 .total-and-cost{
   display:flex;

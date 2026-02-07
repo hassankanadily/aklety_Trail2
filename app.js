@@ -178,6 +178,7 @@ const cartCountDiv = document.createElement("p");
 addToCart.addEventListener('click',() => {
       let currentQuantityCount = quantityCount.textContent;
       cartItemsCount++;
+      console.log(cartItemsCount);
       cartCountDiv.className = "cart-items-count";
       cart.appendChild(cartCountDiv);
       console.log("works");
@@ -228,6 +229,7 @@ addToCart.addEventListener('click',() => {
     if (bigTotalBox.hidden === true)
     {
       bigTotalBox.hidden = false;
+      bigTotalBox.style.display = "flex";
       totalBox.hidden = false;
       document.querySelector(".word-total2").hidden = false;
       document.querySelector(".bagarab").hidden=false;
@@ -319,6 +321,7 @@ addToCart.addEventListener('click',() => {
             item.remove();
           });
           bigTotalBox.hidden = true;
+          bigTotalBox.style.display = "none";
           totalBox.hidden = true;
           document.querySelector(".word-total2").hidden = true;
           document.querySelector(".bagarab").hidden=true;
@@ -402,8 +405,7 @@ addToCart.addEventListener('click',() => {
       {
         amount--;
         v.textContent = amount;
-      }
-      if (itemCartCost === 0)
+        if (itemCartCost === 0)
       {
          price2Text = cartPrice2.textContent;
       }
@@ -414,6 +416,8 @@ addToCart.addEventListener('click',() => {
       document.querySelector(".bagarab").textContent = "$"+totalAmount.toFixed(2);
       subtotalAmount = itemCartCost;
       subTotal.textContent = "$"+subtotalAmount.toFixed(2);
+      }
+
     });
 
       rightAddedItem.appendChild(cartPrice2);
@@ -472,7 +476,6 @@ startOrderingButton.addEventListener('click', () => {
     home.querySelector("p").classList.add("clicked-nav");
 });
 const likeButton = document.querySelectorAll(".like-img-box");
-
 
 likeButton.forEach(like => {
   const newLike = document.createElement("img");
@@ -664,3 +667,385 @@ editProfile.addEventListener('click',() => {
     emailInput.value = "";
   });
 });
+const logoutBtn = document.querySelector(".logout-button");
+const signInBtn = document.querySelector('.sign-in-button');
+const alreadyExistsMessage = document.querySelector(".account-exists-message");
+const emailRequired = document.querySelector(".email-required");
+const passRequired = document.querySelector(".password-required");
+const bottomNav = document.querySelector('.bottom-nav-bar');
+alreadyExistsMessage.style.display = "none";
+emailRequired.style.display = "none";
+passRequired.style.display = "none";
+const accountsList = [];
+const account = [];
+logoutBtn.addEventListener('click',() => {
+  showPage("login-sec","Login","#loginPage");
+  bottomNav.style.display = "none";
+});
+signInBtn.addEventListener('click',()=> {
+    
+    const emailInput = document.querySelector('.login-email');
+    const email = emailInput.value;
+    const passInput = document.querySelector('.login-password');
+    const password = passInput.value;
+    const newAccount = [];
+    if(email === "" && password === ""){
+      emailRequired.style.display = "block";
+      setTimeout(()=>{
+        emailRequired.style.display = "none";
+      },2000);
+      passRequired.style.display = "block";
+      setTimeout(()=>{
+        passRequired.style.display = "none";
+      },2000);
+      return;
+    }
+    if(email===""){
+      emailRequired.style.display = "block";
+      setTimeout(()=>{
+        emailRequired.style.display = "none";
+      },2000);
+      return;
+    }
+    if(password===""){
+      passRequired.style.display = "block";
+      setTimeout(()=>{
+        passRequired.style.display = "none";
+      },2000);
+      return;
+    }
+    if(accountsList.length!==0){
+          let exists = 0;
+          for(let i = 0; i<accountsList.length;i++){  
+            if(accountsList[i][0]===email){
+              if(accountsList[i][1]===password){
+                showPage("verification-sec","Verification","#verificationPage");
+                return;
+              }
+              else{
+                exists = 1;
+              }
+            }
+          }
+          if(exists===1){
+            alreadyExistsMessage.style.display = "block";
+            setTimeout(()=>{
+              alreadyExistsMessage.style.display = "none";
+            },2000);
+            return;
+          }
+          else{
+            newAccount.push(email);
+            newAccount.push(password);
+            accountsList.push(newAccount);
+            profileEmail.textContent = email;
+        }
+    }
+    else{
+      newAccount.push(email);
+      newAccount.push(password);
+      accountsList.push(newAccount);
+      profileEmail.textContent = email;
+    }
+    showPage("verification-sec","Verification","#verificationPage");
+
+  })
+const verifyButton = document.querySelector(".verify-button");
+const enterValid = document.querySelector(".please-valid-text");
+const invalidCode = document.querySelector(".invalid-text");
+const codeNumber = document.querySelector(".code-number");
+const successfullyLoggedIn = document.querySelector(".logged-in-message");
+
+let code = Math.floor(1000 + Math.random() * 9000);
+codeNumber.textContent = code;
+enterValid.style.display = "none";
+invalidCode.style.display = "none";
+
+verifyButton.addEventListener('click',()=>{
+  let checkInputs = 0;
+  const codeInputs = document.querySelectorAll(".verification-inputs");
+  codeInputs.forEach(input => {
+    if(input.value === "" || isNaN(input.value)){
+      checkInputs = 1;
+      console.log("yes");
+    } 
+  });
+  if(checkInputs === 1){
+    enterValid.style.display = "flex";
+      setTimeout(()=>{
+        enterValid.style.display = "none";
+      },2000);
+      return;
+  }
+  checkInputs=0;
+  let codeList = code.toString();
+  let checkCode = 0;
+  for(let i = 0; i<codeList.length;i++){
+    if(codeList[i]!==codeInputs[i].value){
+      checkCode=1;
+      
+    }
+  }
+  if(checkCode===1){
+      invalidCode.style.display = "flex";
+      setTimeout(()=>{
+        invalidCode.style.display = "none";
+      },2000);
+      return;
+    }
+    else{
+      showPage("home-sec","Home","#homePage");
+      successfullyLoggedIn.style.opacity = "1";
+      successfullyLoggedIn.style.transform = "translateY(-400%)";
+      setTimeout(()=>{
+        successfullyLoggedIn.style.opacity = "0";
+        successfullyLoggedIn.style.transform = "translateY(-480%)";
+      },3000);
+      codeInputs.forEach(input => {
+        input.value = "";
+      });
+      const newCode = Math.floor(1000 + Math.random() * 9000);
+      code = newCode;
+      codeNumber.textContent = code;
+      home.querySelector("p").classList.remove("unclicked-nav");
+      home.querySelector("p").classList.add("clicked-nav");
+      profile.querySelector("p").classList.remove("clicked-nav");
+      bottomNav.style.display = "flex";
+    }
+});
+const resendBtn = document.querySelector(".resend-button");
+resendBtn.addEventListener('click',()=>{
+  let newCode = Math.floor(1000 + Math.random() * 9000);
+  code = newCode;
+  codeNumber.textContent = code;
+});
+const arrowVerifyBtn = document.querySelector(".back-arrow-verify-box");
+arrowVerifyBtn.addEventListener('click',()=>{
+  showPage("login-sec","Login","#loginPage");
+});
+const customItems = document.querySelectorAll(".each-food");
+const progress = document.querySelector(".progress");
+const score = document.querySelector(".score");
+let scoreTotal = 0;
+let customTotalCost = 0;
+const startBuildingBtn = document.querySelector(".start-box");
+const proceedCustomBtn = document.querySelector(".custom-proceed-box");
+const totalCustomAmount = document.querySelector(".total-custom-amount");
+const totalCustomBox = document.querySelector(".total-custom-checkout-box");
+const customItemSubtotal = document.querySelector(".custom-item-box");
+const totalCustomCost = document.querySelector(".total-custom-cost");
+let customList = null;
+proceedCustomBtn.style.display = "none";
+startBuildingBtn.addEventListener('click',()=>{
+  showPage("custom-builder-sec","Custom Builder","#customPage");
+});
+
+customItems.forEach(item => {
+  const plus = item.querySelector(".plus-food");
+  const minus = item.querySelector(".minus-food");
+  const amount = item.querySelector(".food-amount");
+  const cost = item.querySelector(".food-cost");
+  const costNumber = parseFloat(cost.textContent.replace("$",""));
+  const itemPoints = parseInt(item.querySelector(".points-and-img p").textContent.replace("pts",""),10);
+  const notEnoughMessage = document.querySelector(".not-enough-message");
+  let number = parseInt(amount.textContent);
+  let test = null;
+  plus.addEventListener('click',()=>{
+    number = parseInt(amount.textContent);
+    if(scoreTotal<=10){
+      console.log(number);
+      number++;
+      amount.textContent = number;
+      scoreTotal+=itemPoints;
+      proceedCustomBtn.style.display = "flex";
+      customTotalCost+=costNumber;
+      totalCustomAmount.textContent = "$"+customTotalCost.toFixed(2);
+      totalCustomCost.textContent = totalCustomAmount.textContent;
+      const newItem = document.createElement("div");
+      newItem.className = "new-item";
+      const newItemName = document.createElement("p");
+      newItemName.className = "new-item-name";
+      const newItemCost = document.createElement("p");
+      newItemCost.className = "new-item-cost";
+      newItemName.textContent = item.querySelector(".food-name").textContent;
+      newItemCost.textContent = "$"+(costNumber*number).toFixed(2);
+      const allNewItems = document.querySelectorAll(".new-item");
+      customList = allNewItems;
+      let checker = 0;
+      allNewItems.forEach(items =>{
+        if(items.querySelector(".new-item-name").textContent===newItemName.textContent){
+          test = items;
+          checker = 1;
+          items.querySelector(".new-item-cost").textContent = "$"+(costNumber*number).toFixed(2);
+          if(scoreTotal>10){
+            number--;
+            items.querySelector(".new-item-cost").textContent = "$"+(costNumber*number).toFixed(2);
+            number++;
+          }
+        }
+      })
+      if(checker!==1 && scoreTotal<=10){
+        console.log(123);
+        newItem.appendChild(newItemName);
+        newItem.appendChild(newItemCost);
+        customItemSubtotal.appendChild(newItem);
+        //newItemCost.textContent = "$"+(costNumber*number).toFixed(2);
+      }
+      
+    } 
+    if(scoreTotal>10)
+    {
+      if(customTotalCost>=0){
+        customTotalCost-=costNumber;
+      }
+      totalCustomAmount.textContent = "$"+customTotalCost.toFixed(2);
+      totalCustomCost.textContent = totalCustomAmount.textContent;
+      scoreTotal-=itemPoints;
+      number--;
+      amount.textContent = number;
+      notEnoughMessage.style.opacity = "1";
+      notEnoughMessage.style.transform = "translateY(0)";
+      setTimeout(()=>{
+        notEnoughMessage.style.opacity = "0";
+        notEnoughMessage.style.transform = "translateY(-300px)";
+      },2000);
+
+    }
+    score.textContent = scoreTotal;
+    progress.value = scoreTotal;
+  });
+  minus.addEventListener('click',()=>{
+    if(number>0){
+      number--;
+      amount.textContent = number;
+      scoreTotal-=itemPoints;
+      score.textContent = scoreTotal;
+      progress.value = scoreTotal;
+      if(customTotalCost>=0){
+        customTotalCost-=costNumber;
+      }
+      else{
+        customTotalCost = 0;
+      }
+      totalCustomAmount.textContent = "$"+customTotalCost.toFixed(2);
+      totalCustomCost.textContent = totalCustomAmount.textContent;
+      if(customItemSubtotal.contains(test)){
+        if(test.contains(test.querySelector(".new-item-cost"))){
+        test.querySelector(".new-item-cost").textContent = "$"+(costNumber*number).toFixed(2);
+        }
+      }
+      
+    }
+    
+    if(number === 0){
+      const foodName = item.querySelector(".food-name").textContent;
+      const allNewItems = document.querySelectorAll(".new-item");
+      allNewItems.forEach(newItem => {
+        const newItemName = newItem.querySelector(".new-item-name").textContent;
+        if(newItemName === foodName){
+          newItem.remove();
+        }
+      });
+
+    }
+
+    if(scoreTotal===0){
+    proceedCustomBtn.style.display = "none";
+    }
+  });
+});
+const amountList = document.querySelectorAll(".food-amount");
+totalCustomBox.style.display = "none";
+proceedCustomBtn.addEventListener('click',()=>{
+  showPage("checkout-sec","Checkout","#checkoutPage");
+  totalCustomBox.style.display = "flex";
+  //checkoutSection.appendChild(totalCustomBox);
+  //totalCustomBox.appendChild(customItemSubtotal);
+});
+const confirmCustomOrder = document.querySelector(".confirm-order-button");
+  confirmCustomOrder.addEventListener('click',()=>{
+    let itemsCount = 0;
+    document.querySelectorAll(".new-item").forEach(item => {
+      itemsCount++;
+    });
+    console.log(456);
+    let oldCount = 0;
+    showPage("orders-sec","Orders","#ordersPage");
+    const cartItemsNumber = document.createElement("p");
+    cartItemsNumber.className = "cart-items-number";
+    if(totalCustomBox.style.display === "flex")
+    {
+      const id = Math.floor(100000 + Math.random() * 900000);
+      const newOrderBox = document.createElement("div");
+      newOrderBox.className = "new-order-box";
+      const orderIDBox = document.createElement("div");
+      orderIDBox.className = "order-id-box";
+      const upperBox = document.createElement("div");
+      upperBox.className = "upper-box";
+      const status = document.createElement("p");
+      status.className = "status";
+    setTimeout(()=> {
+      status.textContent = "Processing";
+      status.style.color = "rgb(240, 69, 69)";
+      status.style.fontWeight = "bold";
+    setTimeout(()=> {
+        status.textContent = "Delivered";
+        status.style.color = "green";
+        status.style.fontWeight = "bold";
+      },15000);
+    },1);
+    const orderID = document.createElement("p");
+    orderID.className = "order-id";
+    orderID.textContent = "Order "+"#"+id;
+    const date = document.createElement("p");
+    date.className = "date";
+    const day = Math.floor(Math.random() * 30) + 1;
+    const month = Math.floor(Math.random() * 12) + 1;
+    date.textContent = "Date: "+ "2026-"+month+"-"+day;
+    cartItemsNumber.textContent = itemsCount + " items";
+    const lowerBox = document.createElement("div");
+    lowerBox.className = "lower-box";
+    const totalWord = document.createElement("p");
+    totalWord.className = "total-word-order";
+    totalWord.textContent = "Total";
+    const totalOrder = document.createElement("p");
+    totalOrder.textContent =totalCustomCost.textContent;
+    points = parseInt(numberOfPoints.textContent,10);
+    points+=Math.floor(totalAmount);
+    numberOfPoints.textContent = points;
+    totalOrder.className = "total-order";
+    orderIDBox.appendChild(orderID);
+    orderIDBox.appendChild(status);
+    upperBox.appendChild(orderIDBox);
+    upperBox.appendChild(date);
+    upperBox.appendChild(cartItemsNumber);
+    lowerBox.appendChild(totalWord);
+    lowerBox.appendChild(totalOrder);
+    newOrderBox.appendChild(upperBox);
+    newOrderBox.appendChild(lowerBox);
+    ordersSection.appendChild(newOrderBox);
+    } 
+    else if(document.querySelector(".subtotal-box")){
+      console.log("ok");
+      document.querySelectorAll(".subtotal-box").forEach(() => {
+        oldCount++;
+      });
+      cartItemsNumber.textContent = oldCount + " items";
+    }
+    
+    customTotalCost = 0;
+    totalCustomAmount.textContent = "$"+customTotalCost.toFixed(2);
+    proceedCustomBtn.style.display = "none";
+    progress.value = 0;
+    scoreTotal = 0;
+    score.textContent = scoreTotal;
+    totalCustomBox.style.display = "none";
+    amountList.forEach(amount => {
+      amount.textContent = 0;
+    });
+
+    document.querySelectorAll(".new-item").forEach(item =>{
+      item.remove();
+      
+    });
+  });
